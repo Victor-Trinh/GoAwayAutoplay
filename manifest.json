@@ -1,0 +1,10 @@
+{
+    "name": "NoAutoplay",
+    "manifest_version": 2,
+    "version": "1.0.0",
+    "background": {
+        "persistent": true,
+        "scripts": ["background.js"]
+    },
+    "permissions": ["tabs", "<all_urls>"]
+}
