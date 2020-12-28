@@ -1,8 +1,8 @@
-var mutedTabs = new Map() // tabs muted by the extension. tab id -> base url of tab 
-
 function getBaseUrl(url){
   return url.split("/")[2]
 }
+
+var mutedTabs = new Map() // tabs muted by the extension. tab id -> base url of tab 
 
 chrome.tabs.onUpdated.addListener(function(updatedTabId) {
   chrome.tabs.get(updatedTabId, function (updatedTab) {
