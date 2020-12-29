@@ -1,9 +1,21 @@
 <html>
+<head>
+    <link rel="stylesheet" href="options.css">
+</head>
+
 <body>
-    <h1>Go away! Autoplay</h1> 
-    <textarea id="trusted-sites-list" style="width: 50%; height: 50%;"></textarea>
-    <button id="save-trusted-sites">Save</button>
-    <button id="clear-trusted-sites">Clear</button>
-    <script src="options.js"></script>
+    <h1 id="title">Go away! Autoplay</h1> 
+    <p class="description">The websites below will be ignored by Go away! Autoplay. <br>
+        Add your trusted sites below and hit save! <br>
+        (Each site should be on its own line in the format "www.title.com")</p>
+    <div id="trusted-sites-display"> 
+        <textarea placeholder="Trusted sites go here..." id="trusted-sites-list" style="width: 50%; height: 50%;"></textarea>
+        <div id="buttons">
+            <button id="save-trusted-sites">Save</button>
+            <button id="clear-trusted-sites">Clear</button>
+        </div>    
+        <script src="options.js"></script>
+    </div>
+    <p class="description">You can also trust the current website at any time using the Go away! Autoplay popup top right corner of your browser.</p>
 </body>
 </html>

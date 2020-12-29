@@ -27,8 +27,11 @@ function saveTrusted(){
 }
 
 function clearTrusted(){
-    chrome.storage.sync.clear(() => console.log("Cleared Trusted Sites"));
-    trustedSitesElement.value = trustedSitesStr;
+    chrome.storage.sync.clear(() => {
+        console.log("Cleared Trusted Sites");
+        trustedSitesElement.value = "";
+    });
+    
 }
 
 fillInitial();

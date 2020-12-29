@@ -10,6 +10,7 @@ chrome.tabs.onUpdated.addListener(function(updatedTabId) {
       var trustedSites = result.trustedSites
       var audible = updatedTab.audible;
       var notMuted = updatedTab.mutedInfo;
+      
       if (notMuted && audible && !trustedSites.includes(getBaseUrl(updatedTab.url))){ 
         console.log("Muting tab: ".concat(updatedTab.title));
         chrome.tabs.update(updatedTab.id, {"muted": true});

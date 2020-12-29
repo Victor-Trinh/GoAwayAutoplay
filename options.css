@@ -1,0 +1,45 @@
+#title, .description{
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+}
+
+#trusted-sites-display {
+    vertical-align: middle;
+}
+
+#buttons {
+    margin-top: 10px;
+}
+
+#clear-trusted-sites {
+    float: left,;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 12px;
+
+    box-shadow: none;
+    border: 1px solid white;
+    border-radius: 100px;
+
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+}
+
+#save-trusted-sites {
+    float: left,;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 12px;
+
+    box-shadow: none;
+    border: 1px solid white;
+    border-radius: 100px;
+
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+}
+
+#clear-trusted-sites:hover{
+    background:red
+}
+
+#save-trusted-sites:hover{
+   background: green 
+}
