@@ -35,5 +35,5 @@ function clearTrusted(){
 }
 
 fillInitial();
-saveButtonElement.addEventListener("click", saveTrusted);
-clearButtonElement.addEventListener("click", clearTrusted)
+saveButtonElement.addEventListener("mouseup", saveTrusted);
+clearButtonElement.addEventListener("mouseup", clearTrusted)

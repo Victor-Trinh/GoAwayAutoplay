@@ -1,0 +1,34 @@
+#title{
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+}
+
+#go-to-options, #trust-current-site{
+    float: left,;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 12px;
+
+    box-shadow: none;
+    border: 1px solid white;
+    border-radius: 100px;
+
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+}
+
+#go-to-options:hover{
+    background: grey
+}
+
+#trust-current-site:hover{
+    background: green
+}
+
+#go-to-options{
+    width: 110px;
+    outline: 0;
+}
+
+#trust-current-site{
+    width: 150px;
+    outline: 0;
+}

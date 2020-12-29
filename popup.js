@@ -10,23 +10,29 @@ document.querySelector('#go-to-options').addEventListener("click", function() {
   }
 });
 
-document.querySelector('#whitelist-current').addEventListener("click", function() {
-  chrome.tabs.query({active:true,currentWindow:true},function(tab){
-    currUrl = getBaseUrl(tab[0].url);
-    chrome.storage.sync.get(['trustedSites'], function(result) {
-      currTrusted = result.trustedSites
-      if (currTrusted === undefined) {
-        currTrusted = [currUrl]
-      } 
-      else {
-        if (currTrusted.includes(currUrl)) return false
-        currTrusted.push(currUrl)
-      }
-      alert('Current trusted sites are: ' + currTrusted);
+trustSiteButton = document.querySelector('#trust-current-site')
 
-      chrome.storage.sync.set({trustedSites: currTrusted}, function() {
-        console.log("Sucessfully set trusted sites.");
-      });
-    });
+function trustSite(site, currTrusted) {
+  console.log("Adding " + site + " to trusted sites");
+  if (currTrusted === undefined){
+    currTrusted = [site];
+  } else {
+    currTrusted.push(site);
+  }
+  chrome.storage.sync.set({trustedSites: currTrusted}, function() {
+    trustSiteButton.innerText = "Trusted!";
+  });
+}
+
+chrome.tabs.query({active:true,currentWindow:true},function(tab){
+  currUrl = getBaseUrl(tab[0].url);
+  chrome.storage.sync.get(['trustedSites'], function(result) {
+    currTrusted = result.trustedSites
+    if (!(currTrusted === undefined) && currTrusted.includes(currUrl)) {
+      trustSiteButton.innerText = "Trusted!";
+      trustSiteButton.style.backgroundColor="green"
+    } else {
+      trustSiteButton.addEventListener("click", () => trustSite(currUrl, currTrusted));
+    }
   });
 });
