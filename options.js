@@ -4,9 +4,15 @@ clearButtonElement = document.querySelector("#clear-trusted-sites");
 
 function fillInitial() {
     chrome.storage.sync.get(['trustedSites'], function(result) {
-        trustedSitesStr = result["trustedSites"].toString().replace(/,/g, '\n');
+        tempResult = "";
+        numRows = 5;
+        if (result["trustedSites"] !== undefined) {
+            tempResult = result["trustedSites"]
+            numRows = tempResult.length
+        }
+        trustedSitesStr = tempResult.toString().replace(/,/g, '\n');
         trustedSitesElement.value = trustedSitesStr;
-        trustedSitesElement.rows = result["trustedSites"].length;
+        trustedSitesElement.rows = numRows.length;
     });
 }
 

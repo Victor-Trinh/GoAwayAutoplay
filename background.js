@@ -10,14 +10,13 @@ chrome.tabs.onUpdated.addListener(function(updatedTabId) {
       var trustedSites = result.trustedSites
       var audible = updatedTab.audible;
       var notMuted = updatedTab.mutedInfo;
-    
-      if (notMuted && audible && !trustedSites.includes(updatedTab.url)){ 
+      if (notMuted && audible && !trustedSites.includes(getBaseUrl(updatedTab.url))){ 
         console.log("Muting tab: ".concat(updatedTab.title));
         chrome.tabs.update(updatedTab.id, {"muted": true});
         mutedTabs.set(updatedTab.id, getBaseUrl(updatedTab.url));
       } // muted tab has changed to new base url  
       else if (mutedTabs.has(updatedTab.id) && (mutedTabs.get(updatedTab.id) !== getBaseUrl(updatedTab.url))) { 
-        if (audible && !trustedSites.includes(updatedTab.url)) { 
+        if (audible && !trustedSites.includes(getBaseUrl(updatedTab.url))) { 
           console.log("Muting tab: ".concat(updatedTab.title));
           mutedTabs.set(updatedTab.id, getBaseUrl(updatedTab.url));
         } else { // unmute and delete from map 
